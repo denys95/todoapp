@@ -1,0 +1,72 @@
+table
+  text-align center
+  vertical-align center
+  border-collapse collapse
+  border 1px solid #ccc
+  margin 0 auto
+  min-width 700px
+
+  th, td
+    border 1px solid #ccc
+    padding 4px 24px
+
+  th
+    background #efefef
+
+    &.task-name-header
+      min-width 360px
+
+  td
+    height 36px
+
+    &.task-name
+      min-width 360px
+      cursor pointer
+
+  .task-title
+    font-size 16px
+
+    &:hover
+      text-decoration underline
+
+  .btn-clear-all,
+  .btn-delete,
+  .btn-add
+    cursor pointer
+
+
+  .btn-clear-all,
+  .btn-delete
+    &:hover
+      color red
+
+  .btn-add:hover
+    color blue
+
+  input
+    display none
+    font-size 16px
+    text-align center
+    outline none
+    width 100%
+    padding 0
+    border 0
+    background transparent
+
+    &.active
+      display block
+
+  &.striped
+    tbody
+      tr:nth-child(odd)
+          background #fef2cc
+
+  &.hoverable
+    tbody
+      tr:hover
+        background #efefef
+        cursor pointer
+
+  tfoot
+    tr
+      background #efefef

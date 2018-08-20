@@ -1,0 +1,35 @@
+<table class="striped">
+  <thead>
+  <tr>
+    <th colspan="3">My List</th>
+  </tr>
+  <tr>
+    <th>ID</th>
+    <th class="task-name-header">Task</th>
+    <th>
+      <a class="btn-clear-all" (click)="clearAllTasks()">Clear All</a>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngIf="!tasks.length">
+    <td colspan="3">Empty list</td>
+  </tr>
+  <tr *ngFor="let task of tasks; let i = index">
+    <td>{{ task.id }}</td>
+    <td class="task-name" (click)="toggleCell(task.id, $event)">
+      <span *ngIf="task.id !== editTaskId" class="task-title">{{ task.name }}</span>
+      <input [class.active]="task.id === editTaskId" (keydown.enter)="updateTask(i)" (focusout)="updateTask(i)" type="text" [(ngModel)]="task.name">
+    </td>
+    <td>
+      <a class="btn-delete" (click)="deleteTask(task.id)">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="3">
+      <a class="btn-add" (click)="addTask()">Add</a></td>
+  </tr>
+  </tfoot>
+</table>
